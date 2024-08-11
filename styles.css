@@ -1,0 +1,148 @@
+:root {
+    --card-size: 100px;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+}
+
+.white-background {
+    background-color: white;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 100vh; 
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px; 
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+#start-screen, #game-screen {
+    width: 100%;
+    max-width: 1200px;
+}
+
+#level-selection {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#level-selection img {
+    width: calc(33.33% - 20px);
+    max-width: 300px;
+    height: auto;
+    cursor: pointer;
+}
+
+#game-board {
+    display: grid;
+    gap: 2%;
+    margin-top: 40px !important;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+.card {
+    width: var(--card-size);
+    height: 0;
+    padding-bottom: var(--card-size);
+    border: 2px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    background-image: url('tausta.avif');
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.card.flipped img {
+    display: block;
+}
+
+.card.matched {
+    border-color: green;
+}
+
+#feedback-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#congratulations {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.star {
+    width: 50px;
+    height: 50px;
+}
+
+#restart-button {
+    padding: 10px 20px;
+    font-size: 20px;  /* Increase this value for larger text */
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid black;  /* Add a border for better visibility against the white background */
+    font-weight: bold;  /* Make the text bold */
+    text-transform: uppercase;  /* Make the text all caps if desired */
+}
+#restart-button:hover {
+    background-color: #f0f0f0;  /* Slightly darker on hover */
+}
+
+@media (max-width: 768px) {
+    #level-selection {
+        flex-direction: column;
+        align-items: center;
+        margin-top: -10px;
+    }
+    #level-selection img {
+        width: 60%;
+        max-width: 320px;
+        margin-bottom: 5px; /* Kokeile eri negatiivisia arvoja */
+    }
+    #level-selection img:last-child {
+        margin-bottom: 0; /* Poista negatiivinen margin viimeiseltä kuvalta */
+    }
+}
